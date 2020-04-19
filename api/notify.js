@@ -5,10 +5,10 @@ const twilio = require('twilio');
 module.exports = async (req, res) => {
   try {
     const twilioClient = twilio(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
-
+    const googleServiceAccountPrivateKey = Buffer.from(process.env.GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY_64, 'base64').toString();
     const auth = new google.auth.JWT({
       email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
-      key: process.env.GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY,
+      key: googleServiceAccountPrivateKey,
       scopes: ['https://www.googleapis.com/auth/spreadsheets'],
     });
 
