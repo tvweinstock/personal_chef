@@ -39,6 +39,6 @@ module.exports = async function (req, res) {
     res.status(200).send('ok');
   } catch (err) {
     console.log(err);
-    res.status(500).send('ko', err.message);
+    res.status(500).send(`ko, ${err.message}`);
   }
 };
