@@ -28,7 +28,7 @@ async function notify() {
   const [lunch, dinner] = spreadsheetResult.data.values[0];
 
   await twilioClient.messages.create({
-    body: `On the menu today, we have ${lunch} for lunch and ${dinner} for dinner tonight!!`,
+    body: `On the menu today, we have ${lunch} for lunch and ${dinner} for dinner tonight!! It's gonna be great!`,
     from: process.env.TWILIO_PHONE_NUMBER_SOURCE,
     to: process.env.TWILIO_PHONE_NUMBER_DESTINATION,
   });
